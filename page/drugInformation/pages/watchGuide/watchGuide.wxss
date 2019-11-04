@@ -1,0 +1,15 @@
+.box_main{
+  min-height: 1300rpx;
+}
+.my_video{
+  width: 100%;
+}
+.closeVideo{
+  display: inline-block;
+  float: right;
+  padding: 10rpx 28rpx;
+  background: rgba(0, 0, 0, 0.4);
+  color: #fff;
+  border-radius: 40rpx;
+  margin-bottom: 5rpx;
+}

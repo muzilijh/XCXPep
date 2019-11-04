@@ -1,0 +1,58 @@
+<!-- 底部tap -->
+<view class="fixed col-w12 btm-0 zIndex9">
+  <image class="col-w12 bottom_bg_box image-vertical-align" src="{{'../../images/bottom_bg.png'}}"></image>
+  <view class="col-w12 weui-cell weui-cell-no weui-cell_end pad0 font24 bg-fff {{iphoneModel?'pb20':'pb10'}}">
+    <view class="weui-cell__bd textAlignCenter" bindtap="goDrugInstruction">
+      <image class="icon_img image-vertical-align" src="{{'../../images/phar.png'}}"></image>
+      <view class="font20 col-685a5d">
+        药师咨询
+      </view>
+    </view>
+    <view class="weui-cell__bd textAlignCenter zIndex9" bindtap="showSacnDrug">
+      <view class="font20 col-685a5d relative">
+      <image class="icon_sacn image-vertical-align" src="{{'../../images/scan.png'}}"></image>
+        扫药盒69码
+      </view>
+    </view>
+    <view class="weui-cell__bd textAlignCenter" bindtap="my">
+      <image class="icon_img image-vertical-align" src="{{'../../images/my.png'}}"></image>
+      <view class="font20 col-685a5d">
+        我的
+      </view>
+    </view>
+  </view>
+</view>
+
+<!-- 开始扫码提示 -->
+<view class="code_empower" wx:if="{{showSacnDrug}}">
+  <view class="empower_body" style="padding-top: {{height}}px">
+    <view class="textAlignRight">
+      <image src="{{'../../images/btn_close.png'}}" class="icon_no mr50" bindtap="closeShowSacn"></image>
+    </view>
+    <image src="{{imageIcon + 'sweep_barCode.png'}}" class="empower_code"></image>
+    <image src="{{imageIcon + 'sqCode.png'}}" class="empower_code q_code"></image>
+  </view>
+  <button class="empbtn bg-42e8e8-1aa1d8" bindtap="sacnDrug">开始扫码</button>
+  <view class="col-fff textAlignCenter mt20 font30" bindtap="longerFocus">
+    <image wx:if="{{!longerFocus}}" class="icon_no mr10" src="../../images/btn_unselected.png"></image>
+    <image wx:if="{{longerFocus}}"  class="icon_no mr10" src="../../images/btn_selected.png"></image>
+    <view style="display: inline-block">不再提醒</view>
+  </view>
+</view>
+
+<!-- 微信登录提示 -->
+<view class="empower" wx:if="{{showUserInfo}}">
+  <image src="{{'../../images/pic.png'}}" class="empowerImg"></image>
+  <view class="empowerBody textAlignCenter">
+    <view class="font28 pl56 pr56 pt110 ellipsis-1 textAlignLeft">Hi～<open-data type="userNickName"></open-data></view>
+    <button class="empbtn empbtn_60 bg-42e8e8-1aa1d8" wx:if="{{canIUse}}" open-type="getUserInfo" bindgetuserinfo="bindGetUserInfo">微信快捷登录</button>
+    <view class="font24 mt60 pl56 pr56 col-9b9b9b">为了更好的为您提供服务，请先登录。</view>
+    <view class="col-9b9b9b font24 mt40 inlineBlock bbno" bindtap="closeUserInfo">暂不登录</view>
+  </view>
+</view>
+
+<!-- 去药便利健康服务小程序 -->
+<view class="fixed goMiniCenter btm-120 zIndex9" wx:if="{{showGoYBL}}">
+  <image class="goMiniIcon" bindtap="goYBLMini"  src="{{'../../images/goYBLMini.png'}}"></image>
+</view>
+

@@ -1,0 +1,71 @@
+<navBar bar-data='{{barData}}'></navBar>
+<view style="margin-top: {{height}}px">
+<!-- 辅助用药服务 -->
+  <view class="bg-fff mt20">
+    <!-- 固定头部 -->
+    <view class="pr28 font24">
+      <view class="weui-cell weui-cell_access">
+        <view class="weui-cell__bd">
+          <view class='font28 col-4A4A4A'>
+            <image src='../../../../images/1-min.png' class='titlePor'></image>
+            国民科学合理用药普及暨指导服务工程
+          </view>
+        </view>
+      </view>
+      <view class="pl28" bindtap="goWatchGuide">
+        <view>
+          <text class="col-34c3e0 bor-34c3e0 borderRadius-8 pad5-10 font20 mr10">视频</text>
+          <text class="">科学用药视频观看指南</text>
+        </view>
+        <view class="mt20 mb20 h320 over-hedden relative borderRadius-16">
+          <image class="col-w12" src="{{'../../resources/images/watch_guide.png'}}" mode="widthFix"></image>
+          <view class="absolute cText font40 col-fff"></view>
+        </view>
+      </view>
+    </view>
+    <!-- 固定头部 -->
+
+    <block wx:for="{{videoClassify}}" wx:key="{{index}}">
+      <view class="weui-cell weui-cell_access">
+        <view class="weui-cell__bd">
+          <view class='font28 col-4A4A4A'>
+            <image src='../../../../images/1-min.png' class='titlePor'></image>
+            {{item.pName}}
+          </view>
+        </view>
+        <view class="weui-cell__lf" bindtap="goSearchIndex" wx:if="{{item.gcList[0].ctype == 1}}">
+          <image class="triangle_right" src="../../../../images/more-button.png"></image>
+        </view>
+      </view>
+
+      <view class="font24 pr28 pb20">
+        <block class="" wx:for="{{item.gcList}}" wx:for-item="gcitem" wx:key="{{index}}" >
+          <!-- 横着69码展示 -->
+          <block wx:if="{{gcitem.ctype == 1}}">
+            <view class="inlineBlock col-w6 bs pl28 mb20" style="vertical-align:top" bindtap="goInformation" data-code="{{gcitem.barCode}}">
+              <image class="col-w12 borderRadius-16" src="{{gcitem.coverURL || '../../images/videoBg.png'}}" mode="widthFix"></image>
+              <view class="font24 col-4A4A4A word-wrap ellipsis-1">{{gcitem.cname||''}}</view>
+              <view class="font24 col-9b9b9b word-wrap ellipsis-2">{{gcitem.description||''}}</view>
+            </view>
+          </block>
+
+          <!-- 竖着视频展示 -->
+          <block wx:else>
+            <view class="pl28" bindtap="goVideoLists" data-id="{{gcitem.id}}" data-cname="{{gcitem.cname}}">
+              <view>
+                <text class="col-34c3e0 bor-34c3e0 borderRadius-8 pad5-10 font20 mr10">视频</text>
+                <text>{{gcitem.cname}}</text>
+              </view>
+              <view class="mt20 mb20 h320 over-hedden relative borderRadius-16">
+                <image class="col-w12" src="{{gcitem.coverURL || '../../../../images/videoBg.png'}}" mode="widthFix"></image>
+                <view class="absolute cText font40 col-fff">{{gcitem.cText||''}}</view>
+              </view>
+            </view>
+          </block>
+          
+        </block>
+      </view>
+    </block>
+  </view>
+  <!-- 辅助用药服务结束 -->
+</view>

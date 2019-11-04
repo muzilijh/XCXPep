@@ -1,0 +1,31 @@
+<!-- 左上角 -->
+<view class='nav-wrap' style="height: {{height*2 + 20}}px;background:{{barData.navbarData.bg?barData.navbarData.bgColor:'#34c3e0'}}">
+    <!-- 导航栏 中间的标题 -->
+  <view class='nav-title' style='line-height: {{height*2 + 44}}px;'>{{barData.navbarData.title}}</view>
+  <view style='display: flex; justify-content: space-around;flex-direction: column'>
+      <!-- 导航栏  左上角的返回按钮 和home按钮
+           其中wx:if='{{navbarData.showCapsule}}' 是控制左上角按钮的显示隐藏，首页不显示 -->
+    <view class='nav-capsule' style='height: {{height*2 + 44}}px;' wx:if='{{barData.navbarData.showCapsule}}'>
+       <!-- 左上角的返回按钮，wx:if='{{!share}}'空制返回按钮显示
+            从分享进入小程序时 返回上一级按钮不应该存在 -->
+      <view bindtap='_navback' wx:if='{{!share}}'>
+        <image src='/images/header/icon_headback-min.png' mode='aspectFill' class='back-pre'></image>
+      </view>
+      <!-- <view class='navbar-v-line' wx:if='{{!share}}'></view> -->
+      <view bindtap='_backhome'>
+        <image src='/images/header/icon_headhome-min.png' mode='aspectFill' class='back-home'></image>
+      </view>
+      <!-- <view bindtap='goDrugQuery' wx:if='{{barData.navbarData.showQuery == 1}}'>
+        <image src='/images/header/icon_search.png' mode='aspectFill' class='back-home'></image>
+      </view> -->
+    </view>
+  </view>
+</view>
+<!-- 右下角购物车 -->
+<view class="fixed right28 zIndex99 {{barData.toolbarData.isTabBar?'btm-55':'btm-110'}}" wx:if="{{barData.toolbarData.showTool}}">
+  <!-- 返回顶部 -->
+  <view bindtap="pageScrollTop" wx:if="{{barData.toolbarData.scrollTitle}}">
+    <image src="../../images/icon_dingbu-min.png" class="w80 h80"></image>
+  </view>
+  
+</view>

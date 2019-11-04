@@ -1,0 +1,74 @@
+<navBar bar-data='{{barData}}'></navBar>
+<view style="margin-top: {{height}}px" class="pb180">
+  <view class="fixed col-w12 bb1" style="z-index: 9">
+    <view class="bg-fff pt0 font28 col-4A4A4A ">
+      <view class="">
+        <image src="../../resources/images/bg_top_new.png" class="col-w12 h40"></image>
+      </view>
+
+      <view class="pad28 pt5 weui-cell pad0 weui-cell-no">
+        <view class="weui-cell__hd col-w12 mr20 col-4A4A4A">
+          <view class="weui-cell pad5-28 borderRadius-8 bg-gray">
+            <view class="weui-cell__hd">
+              <image class="search_icon" src="../../../../images/icon_search.png"></image>
+            </view>
+            <view class="weui-cell__bd ml40">
+              <input class="h60 lh60 pad5-10 borderRadius-8" placeholder="请输入药品名或药盒69条形码" bindinput="bindKeyInput" bindconfirm="buttonQuery" focus="{{focus}}" value="{{inputValue}}"></input>
+            </view>
+            <view class="weui-cell__lf pl20" wx:if="{{inputValue || grugLists.length>0}}">
+              <image class="clean_list" src="../../../../images/btn_close.png" bindtap="cleanList"></image>
+            </view>
+          </view>
+        </view>
+
+        <view class="weui-cell__lf" bindtap="codeScan">
+          <image class="search_code" src="../../../../images/icon_scan-min.png"></image>
+        </view>
+      </view>
+      
+    </view>
+  </view>
+  
+
+
+  <view class="pt180">
+    <view class="font22" wx:if="{{drugListLog.length>0 && grugLists.length == 0}}">
+      <view class="col-9b9b9b ml20">历史搜索</view>
+      <view class="bg-fff pad20 pr56 mt20 relative">
+        <text class="drugList_log" wx:for="{{drugListLog}}" wx:key="{{index}}" bindtap="logQuery" data-item="{{item}}">{{item}}</text>
+        <image class="clean_log" src="../../../../images/btn_close.png" bindtap="cleanLog"></image>
+      </view>
+    </view>
+
+    <view class="mt40 font22" wx:if="{{grugLists.length <= 0}}">
+      <view class="col-9b9b9b ml20">热门搜索</view>
+      <view class="bg-fff mt20 pad20 pb10">
+        <text class="drugList_log mb10" wx:for="{{hotListLog}}" wx:key="{{index}}" bindtap="logQuery" data-item="{{item}}">{{item}}</text>
+      </view>
+    </view>
+
+    <view class="bg-fff {{drugListLog.length>0 && grugLists.length==0?'mt20':''}}">
+      <block wx:for="{{grugLists}}" wx:key="{{index}}">
+        <view class="weui-cell pad0" bindtap="goInformation" data-code="{{item.barCode}}">
+          <view class="weui-cell__hd pad28">
+            <image src="{{item.pic1}}" lazy-load="true" mode="aspectFit" class="imgPor" />
+          </view>
+          <view class="weui-cell__bd">
+            <view class="font28 col-000 ellipsis-1 w290">{{item.legalName}}</view>
+            <view class="font24 col-9b9b9b ellipsis-1 w290 pt6">{{item.norms}}</view>
+            <view class="font24 col-fb6c69 ellipsis-1 w290 pt6">{{item.prodTypeName || ''}}</view>
+          </view>
+        </view>
+      </block>
+      <view wx:if="{{noLists}}" class="textAlignCenter pt170 pb120 font26 col-4A4A4A">
+        暂未查询到该药品相关信息
+      </view>
+    </view>
+  </view>
+  
+
+
+</view>
+
+
+<bottomBar></bottomBar>
