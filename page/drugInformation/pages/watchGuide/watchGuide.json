@@ -1,0 +1,7 @@
+{
+  "navigationBarTitleText": "视频教程",
+  "usingComponents": {
+    "navBar": "/commpents/navbar/index",
+    "bottomBar": "/commpents/bottomBar/bottomBar"
+  }
+}

@@ -1,0 +1,10 @@
+@import '../drugQuery/drugQuery.wxss';
+.iconSearch{
+  width: 50rpx;
+  height: 50rpx;
+  box-sizing: border-box;
+  position: absolute;
+  z-index: 9;
+  right: 15rpx;
+  top: 30rpx;
+}

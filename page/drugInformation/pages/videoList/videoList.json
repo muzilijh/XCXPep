@@ -1,0 +1,8 @@
+{
+  "navigationBarTitleText": "视频列表",
+  "usingComponents": {
+    "navBar": "/commpents/navbar/index",
+    "videoPlay": "/commpents/videoPlay/videoPlay",
+    "bottomBar": "/commpents/bottomBar/bottomBar"
+  }
+}

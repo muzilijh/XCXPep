@@ -1,0 +1,40 @@
+{
+  "pages": [
+    "page/drugInformation/pages/searchIndex/searchIndex",
+    "page/drugInformation/pages/videoList/videoList",
+    "page/drugInformation/pages/watchGuide/watchGuide",
+    "page/drugInformation/pages/drugQuery/drugQuery",
+    "page/drugInformation/pages/information/information",
+    "page/drugInformation/pages/drugInstruction/drugInstruction",
+    "page/drugInformation/pages/scanTransit/scanTransit",
+    "page/drugInformation/pages/drugLists/drugLists",
+    "page/drugInformation/pages/pharCounseling/pharCounseling",
+    "page/user/pages/my/my",
+    "page/user/pages/SCrecord/SCrecord",
+    "page/user/pages/RSstores/RSstores",
+    "page/user/pages/defaultStore/defaultStore",
+    "page/questionnaire/pages/txSurvey/txSurvey",
+    "page/questionnaire/pages/wjxSurvey/wjxSurvey"
+
+    
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#39ddd9",
+    "navigationBarTitleText": "首页",
+    "navigationBarTextStyle": "white",
+    "navigationStyle": "custom"
+  },
+  "permission": {
+    "scope.userLocation": {
+      "desc": "您的位置信息将用于为您提供更精准的服务信息"
+    }
+  },
+  "navigateToMiniProgramAppIdList": [
+    "wx16ed9a8bbb188228","wxd947200f82267e58","wxebadf544ddae62cb","wx943e291355654a08"
+  ],
+  "functionalPages": {
+    "independent": true
+  },
+  "sitemapLocation": "sitemap.json"
+}

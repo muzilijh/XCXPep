@@ -1,0 +1,34 @@
+<navBar bar-data='{{barData}}'></navBar>
+<view style="margin-top: {{height}}px" class="pb180">
+  <view class="fixed col-w12" style="z-index: 9">
+    <view class="fixed col-w12 bb1" style="z-index:99">
+      <image src="../../../../images/icon_search.png" class="iconSearch" bindtap="goDrugQuery"></image>
+      <scroll-view scroll-x="true" class='navIndex font24' style="padding-top: 20rpx; padding-bottom:10rpx">
+        <view class="navSub {{categoryId == item.id?'active font32':''}} " wx:for="{{tagLists}}" wx:key="{{index}}" data-num='{{index}}' data-navId='{{item.id}}' bindtap='navTab' data-name="{{item.catName}}">
+          {{item.catName}}
+        </view>
+      </scroll-view>
+    </view>
+  </view>
+
+  <view class="bg-fff pt70">
+    <block wx:for="{{grugLists}}" wx:key="{{index}}">
+      <view class="weui-cell pad0" bindtap="goInformation" data-code="{{item.barCode}}">
+        <view class="weui-cell__hd pad28">
+          <image src="{{item.pic1}}" lazy-load="true" mode="aspectFit" class="imgPor" />
+        </view>
+        <view class="weui-cell__bd">
+          <view class="font28 col-000 ellipsis-1 w290">{{item.prodName}}</view>
+          <view class="font24 col-9b9b9b ellipsis-1 w290 pt6">{{item.norms}}</view>
+          <view class="font24 col-fb6c69 ellipsis-1 w290 pt6">{{item.prodTypeName || ''}}</view>
+        </view>
+      </view>
+    </block>
+    <view wx:if="{{grugLists.length == 0}}" class="textAlignCenter pt170 pb120 font26 col-4A4A4A">
+      暂未查询到该分类下相关信息
+    </view>
+  </view>
+
+</view>
+
+<bottomBar></bottomBar>

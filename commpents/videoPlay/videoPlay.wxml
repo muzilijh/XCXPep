@@ -1,0 +1,52 @@
+<view class="{{videoHigth?'videoTitleBox':'videoBox'}}">
+  <!-- <wxs module="m2">
+    var getRandomNumber = function(videoTopLists) {
+      var randomNumber = Math.floor(Math.random() * videoTopLists.length)
+      return randomNumber
+    }
+    module.exports.getRandomNumber = getRandomNumber;
+  </wxs> -->
+
+  <wxs module="m2">
+    var getRandomNumber = function(videoTopUrlLists, indexC) {
+      return indexC % videoTopUrlLists.length
+    }
+    module.exports.getRandomNumber = getRandomNumber;
+  </wxs>
+  
+  <swiper class="h370 borderRadius-16 {{videoHigth}} swiperBox" indicator-dots="{{swiperTrue}}" indicator-color="{{'#000'}}" indicator-active-color="{{'#34c3e0'}}" autoplay="{{swiperFalse}}" duration="{{'500'}}" wx:if="{{!showVideo && videoUrlLists.length>0}}" current="{{currentIndex}}">
+    <block wx:for="{{videoUrlLists}}" wx:for-item="item" wx:key="*this">
+      <swiper-item class="borderRadius-16">
+      
+        <!-- <view class="absolute top30 left50 col-fff font32">{{item.name}}</view> -->
+
+        <view class="h370 over-hedden borderRadius-16">
+          <image class="col-w12 borderRadius-16" src="{{videoTopLists[m2.getRandomNumber(videoTopLists,index)].pictureUrl}}" bindtap="changeVideo" data-index="{{index}}" data-id="{{item.id}}" data-videoItem="{{item}}" mode="widthFix"></image>
+        </view>
+        <view class="mt10">
+          <view wx:if="{{item.title}}" class="ellipsis-1 font28 col-4A4A4A">
+            {{item.title}}
+          </view>
+          <view wx:if="{{item.description}}" class="ellipsis-2 font24 col-9b9b9b">
+            {{item.description}} 
+          </view>
+        </view>
+        
+      </swiper-item>
+    </block>
+  </swiper>
+
+  <view class="" wx:if="{{showVideo}}">
+    <view class="closeVideo" bindtap="closeVideo">收起视频</view>
+    <video id="myVideo{{nowVideo.id}}" class="col-w12 borderRadius-16" src="{{nowVideo.url}}" bindplay='bindplayVideo' bindpause='suspendedVideo' data-pid='myVideo{{nowVideo.id}}' data-index='{{nowVideo.id}}' binderror="videoErrorCallback" enable-play-gesture='{{true}}' autoplay="{{swiperTrue}}" controls>
+    </video>
+    <view class="mt10">
+      <view wx:if="{{title}}" class="ellipsis-1 font28 col-4A4A4A">
+        {{title}}
+      </view>
+      <view wx:if="{{description}}" class="ellipsis-2">
+        {{description}} 
+      </view>
+    </view>
+  </view>
+</view>

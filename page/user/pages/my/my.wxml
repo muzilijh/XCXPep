@@ -1,0 +1,70 @@
+<navBar bar-data='{{barData}}'></navBar>
+<view style="margin-top: {{height}}px">
+  <view>
+    <image src='../../resources/images/me_bg-min.png' class='meBG'></image>
+  </view>
+  <!-- {{userInfo.avatarurl}} -->
+  <view class='userCon'>
+    <view class='uesrContent pt25'>
+      <image src="{{userInfo.uavatarurl || '../../resources/images/user_u.png'}}" class="userHearImgNoInfo"></image>
+      <!-- <view class='fw500 pt10 col-fff font36' wx:if="{{!nickName}}">
+        <button open-type="getUserInfo" bindgetuserinfo="setUserInfo" lang="zh_CN" class='getUIBtnData'>授权登陆</button>
+      </view> -->
+      <view class="font28 col-4A4A4A ellipsis-1">{{userInfo.nickname || ''}}</view>
+      <view class='fw500 pt10 col-fff font36'>
+        <view class="getUIBtnData bg-l6de4ad-r2fa5d1">
+          <navigator url="/page/user/pages/RSstores/RSstores" style="background: none">
+            关注门店公众号
+            <image class="VIP_icon" src='../../resources/images/CVIP.png' ></image>
+          </navigator>
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <view class='pad28 pt0 meNav'>
+    <view class="borderRadius-16 bg-fff mt20 weui-cells_after-title">
+        <navigator url="/page/user/pages/SCrecord/SCrecord" class="weui-cell weui-cell_access" hover-class="weui-cell_active">
+            <view class="weui-cell__hd">
+                <image src="../../resources/images/sc_record.png" class='meListIcon'></image>
+            </view>
+            <view class="weui-cell__bd col-4A4A4A font28">扫码用药记录</view>
+            <view class="weui-cell__ft weui-cell__ft_in-access col-4A4A4A font28"></view>
+        </navigator>
+    </view>
+
+    <view class="borderRadius-16 bg-fff mt20 weui-cells_after-title">
+        <navigator url="/page/user/pages/RSstores/RSstores" class="weui-cell weui-cell_access" hover-class="weui-cell_active">
+          <view class="weui-cell__hd">
+              <image src="../../resources/images/rs_stores.png" class='meListIcon'></image>
+          </view>
+          <view class="weui-cell__bd col-4A4A4A font28">我的服务门店</view>
+          <view class="weui-cell__ft weui-cell__ft_in-access col-4A4A4A font28"></view>
+        </navigator>
+    </view>
+
+    <!-- <view class="mt20">
+    
+      <view bindtap="goOtherMini" class="goMini">
+        去问卷星1
+      </view>
+
+      <view bindtap="goTXMini" class="goMini">
+        去腾讯问卷1
+      </view>
+
+      <navigator url="/page/questionnaire/pages/wjxSurvey/wjxSurvey" class="goMini" hover-class="weui-cell_active">
+        去问卷星2
+      </navigator>
+
+      <navigator url="/page/questionnaire/pages/txSurvey/txSurvey" class="goMini" hover-class="weui-cell_active">
+        去腾讯问卷2
+      </navigator>
+          
+    </view> -->
+
+  </view>
+</view>
+
+
+<bottomBar></bottomBar>
