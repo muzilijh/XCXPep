@@ -1,6 +1,0 @@
-{
-  "usingComponents": {
-    "navBar": "/commpents/navbar/index",
-    "bottomBar": "/commpents/bottomBar/bottomBar"
-  }
-}

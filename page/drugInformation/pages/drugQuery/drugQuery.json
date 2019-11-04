@@ -1,7 +1,0 @@
-{
-  "navigationBarTitleText": "搜索药品",
-  "usingComponents": {
-    "navBar": "/commpents/navbar/index",
-    "bottomBar": "/commpents/bottomBar/bottomBar"
-  }
-}

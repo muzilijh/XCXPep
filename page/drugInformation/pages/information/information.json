@@ -1,7 +1,0 @@
-{
-  "navigationBarTitleText": "商品信息",
-  "usingComponents": {
-    "navBar": "/commpents/navbar/index",
-    "bottomBar": "/commpents/bottomBar/bottomBar"
-  }
-}

@@ -1,8 +1,0 @@
-{
-  "navigationBarTitleText": "用药指导服务",
-  "usingComponents": {
-    "navBar": "/commpents/navbar/index",
-    "bottomBar": "/commpents/bottomBar/bottomBar"
-  },
-  "enablePullDownRefresh": true
-}
